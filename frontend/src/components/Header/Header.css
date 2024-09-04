@@ -1,0 +1,58 @@
+.header-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  width: 100%;
+}
+
+.header img {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header .inside-header {
+  display: flex;
+  flex-direction: column;
+  justify-content:left;
+  flex-wrap: wrap;
+  align-items: left;
+  position: absolute;
+  padding-left: 3.2rem;
+  top: 9rem;
+  left: 8.2rem;
+  color: rgb(255, 255, 255);
+  width: 60%;
+  gap: 1.2rem;
+}
+
+
+.frndsfood {
+  font-size: 4rem;
+  
+}
+
+.foodintro 
+{
+    justify-content: left;
+    width: 80%;
+}
+.header .inside-header button{
+    padding: 5px 7px;
+    width: 20%;
+    border:2px solid tomato;
+    border-radius: 30px;
+    font-size: 1rem;
+    background: white;
+}
+
+.header .inside-header button:hover{
+    cursor: pointer;
+    background: tomato;
+    color: white;
+    font-weight: 600;
+}
