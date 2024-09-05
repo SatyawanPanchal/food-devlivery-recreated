@@ -1,0 +1,44 @@
+.footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  background: #323232;
+  color: white;
+  padding: 30px;
+}
+
+.left-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: left;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.left-footer > img {
+  width: 70%;
+}
+.left-footer .logos {
+  display: flex;
+  gap: 15px;
+}
+
+.left-footer p {
+  font-size: 1.2rem;
+}
+
+.middle-footer .company-navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 0 auto;
+  gap: 1.4rem;
+  list-style: none;
+  margin-top: 2rem;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+
+ 

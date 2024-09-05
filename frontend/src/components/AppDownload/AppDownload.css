@@ -1,0 +1,28 @@
+.app-download {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  min-width: 100%;
+  min-height: 10rem;
+  background-color: rgb(246, 243, 243);
+  padding: 2rem;
+}
+
+.app-download > p {
+  font-size: 3rem;
+}
+.app-download .lowerapp {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.tomatoapp {
+  color: tomato;
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+}

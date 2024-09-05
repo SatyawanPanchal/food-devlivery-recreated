@@ -13,10 +13,10 @@ const Navbar = () => {
 
       <div className="navbar-middle">
         <ul className="navbar">
-          <li>home</li>
-          <li>menu</li>
-          <li>mobile-app</li>
-          <li>contact-us</li>
+          <li>Home</li>
+          <li>Menu</li>
+          <li>Mobile-App</li>
+          <li>Contact-Us</li>
         </ul>
       </div>
 <div className="navbar-right">

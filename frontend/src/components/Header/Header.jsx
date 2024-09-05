@@ -1,11 +1,11 @@
-import Navbar from "../Navbar/Navbar";
+ 
 import header_image from "../../assets/header_img.png";
 import "./Header.css";
 
 const Header = () => {
   return (
     <div className="header-container">
-      <Navbar />
+     
       <div className="header">
         <img src={header_image} alt=" " />
         
