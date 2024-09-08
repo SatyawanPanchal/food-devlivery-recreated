@@ -5,6 +5,7 @@
 
 .header {
   width: 100%;
+  position: relative;
 }
 
 .header img {
@@ -12,19 +13,22 @@
   width: 90%;
   justify-content: center;
   margin: 0 auto;
-  position: relative;
+
 }
 
 .header .inside-header {
   display: flex;
   flex-direction: column;
-  justify-content:left;
+  /* justify-content:left; */
   flex-wrap: wrap;
-  align-items: left;
+  /* align-items: left; */
   position: absolute;
-  padding-left: 3.2rem;
-  top: 9rem;
-  left: 8.2rem;
+  /* padding-left: 3.2rem; */
+  top: 10%;
+  left: 20%;
+  /* top: 13vw;
+  left: 13vw; */
+ 
   color: rgb(255, 255, 255);
   width: 60%;
   gap: 1.2rem;

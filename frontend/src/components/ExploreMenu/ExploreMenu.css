@@ -35,10 +35,20 @@
 .menu-type-list img{
     width: 5rem;
 }
+.menu-type-list-active img{
+    width: 5.05rem;
+}
 
 .menu-type-list img:hover{
-    width: 5.05rem;
-    border:3px solid tomato;
+  
+    border-radius: 50%;
+    cursor: pointer;
+   
+}
+
+.menu-type-list-active img{
+    width: 5rem;
+    border:5px solid rgb(95, 71, 255);
     border-radius: 50%;
     cursor: pointer;
 }

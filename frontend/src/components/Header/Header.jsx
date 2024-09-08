@@ -7,7 +7,7 @@ const Header = () => {
     <div className="header-container">
      
       <div className="header">
-        <img src={header_image} alt=" " />
+        <img className="img-header" src={header_image} alt=" " />
         
         <div className="inside-header">
           <p className="frndsfood"> Friends foods your food here </p>

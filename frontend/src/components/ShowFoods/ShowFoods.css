@@ -1,0 +1,93 @@
+.showfoods {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.showfoods>p{
+    font-size: 2rem;
+     
+}
+
+.dishes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.single-dish{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 1rem;
+    background-color: rgb(241, 241, 226);
+    padding: 1rem;
+    border-radius: 1.3rem;
+
+}
+.star-rating{
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+    
+}
+
+.star-rating p{
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.dish-info
+{
+    width: 90%;
+    letter-spacing: 1px;
+}
+
+.single-dish .price-info{
+    color: tomato;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.single-dish .img-dish{
+    width:90%;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    
+}
+
+.single-dish{
+    position: relative;
+}
+
+/* add remove icons */
+
+.add-remove-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    position: absolute;
+    bottom: 35%;
+    right: 15%; 
+    font-size: 2rem;
+    font-weight: 600; 
+    padding: 3px 7px;
+    border: 2px solid white;
+    border-radius: 50px; 
+    background-color: #a33b48; 
+  
+}
+
+.add-remove-div img{
+    width: 40px;
+    height: 40px;
+}
+
