@@ -7,7 +7,7 @@ import insta_icon from "../../assets/linkedin_icon.png";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="footer" id="footer">
       <div className="left-footer">
         <img src={logo} alt="" />
         <p> This website is created by satyawan</p>

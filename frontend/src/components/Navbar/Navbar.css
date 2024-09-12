@@ -8,6 +8,7 @@
   padding: 10px;
   font-size: 1.2rem;
   margin-bottom: 2rem;
+
 }
 
 .navbar-middle .navbar{
@@ -15,7 +16,14 @@
     display: flex;
     gap: 30px;
 }
-
+a{
+    text-decoration: none;
+}
+a:hover{
+    font-size: 1.2rem;
+    color: tomato;
+    text-decoration: underline;
+}
 .navbar-right
 {
     display: flex;
