@@ -9,7 +9,7 @@ const port = 4000;
 connectDB();
 
 app.use(express.json());
-app.use(cors)
+app.use(cors())
 
 app.use('/api/user', userRoute);
 app.use("/api/cart",cartRoute)

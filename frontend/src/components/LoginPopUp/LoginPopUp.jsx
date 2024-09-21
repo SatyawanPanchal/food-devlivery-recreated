@@ -1,26 +1,27 @@
+/* eslint-disable react/prop-types */
 import { useContext, useState } from "react";
 import "./LoginPopUp.css";
 import { StoreContext } from "../Context/StoreContext";
-import axios from 'axios'
+import axios from "axios";
+import { toast } from "react-toastify";
 
-const LoginPopUp = () => {
+const LoginPopUp = ({ setShowLogin, setName }) => {
   const [currState, setCurrState] = useState("Register");
-  const [data,setData]=useState({
-     name:"",
-    email:"",
-    password:""
-  })
-  const{url,setToken}=useContext(StoreContext)
+  const { url, setToken, loadCartData } = useContext(StoreContext);
 
-  const onChageHandler=(event)=>{
-    const name=event.target.name;
-    const value=event.target.value;
-    setData(data=>({...data,[name]:value}))
-    console.log('data=',data);
-    
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-  }
-  
+  const onChageHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setData((data) => ({ ...data, [name]: value }));
+    console.log("data=", data);
+  };
+
   const handleState = () => {
     if (currState === "Login") {
       setCurrState("Register");
@@ -29,46 +30,62 @@ const LoginPopUp = () => {
     }
   };
 
-  const onLogin = async (e) => {
+  const onLogin = async (e) => 
+  {
     e.preventDefault();
-    let newUrl=url;
-    if(currState==="Login")
-    {
-      newUrl+='/api/user/login';
+    let newUrl = url;
+    if (currState === "Login") {
+      newUrl += "/api/user/login";
+    } else {
+      newUrl += "/api/user/register";
     }
-    else
-    {
-      newUrl+='/api/user/register';
+    const response = await axios.post(newUrl, data);
+    console.log("name of the person logged in =", response.data.username);
+    setName(response.data.username);
+    if (response.data.success) {
+      console.log("token we got after login=", response.data.token);
+
+      setToken(response.data.token);
+
+      localStorage.setItem("token", response.data.token);
+      loadCartData(response.data.token);
+      setShowLogin(false);
+    } else {
+      toast.error(response.data.message);
     }
- const response=await axios.post(newUrl,data);
- console.log('response=',response);
-if(response.data.success)
-{
-  setToken(response.data.token)
-  localStorage.setItem("token",response.data.token);
-  
-
-}
-
- 
-
- 
-  }
+  };
   return (
     <div className="login-popup">
       <form onSubmit={(e) => onLogin(e)} className="login-popup-container">
         <h2>{currState}</h2>
         {currState === "Register" ? (
-          <input type="text" name="name" onChange={onChageHandler} placeholder="Enter you name" required />
+          <input
+            type="text"
+            name="name"
+            onChange={onChageHandler}
+            placeholder="Enter you name"
+            required
+          />
         ) : (
           <></>
         )}
 
-        <input type="email" name="email" placeholder="Enter email here" onChange={onChageHandler} required />
-        <input type="password" name="password" placeholder="Enter password here" onChange={onChageHandler} required />
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter email here"
+          onChange={onChageHandler}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter password here"
+          onChange={onChageHandler}
+          required
+        />
 
         <button className="btn-submit" type="submit">
-       
           {currState === "Register" ? "Register" : "Login"}
         </button>
         <div className="login-condition">
@@ -81,14 +98,14 @@ if(response.data.success)
               Already have an account?
               <span onClick={() => handleState()} className="login-span">
                 Login here.
-              </span> 
+              </span>
             </p>
           ) : (
             <p>
               Are you new customer?
               <span onClick={() => handleState()} className="login-span">
                 Register here.
-              </span> 
+              </span>
             </p>
           )}
         </div>

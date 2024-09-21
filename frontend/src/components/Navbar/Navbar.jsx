@@ -4,7 +4,16 @@ import search from "../../assets/search_icon.png";
 import basket from "../../assets/basket_icon.png";
 import { Link } from "react-router-dom";
  
-const Navbar = ({setShowLogin}) => {
+// eslint-disable-next-line react/prop-types
+const Navbar = ({setShowLogin,name,setName}) => {
+
+  const handleLogout=()=>{
+          setName("")
+          localStorage.removeItem("token")
+  }
+
+
+
   return (
     <div className="navbar-container">
       <div className="logodiv navbar-left">
@@ -36,8 +45,9 @@ const Navbar = ({setShowLogin}) => {
           {" "}
           <img src={basket} alt="" />{" "}
         </Link>
-        <Link to={"/login"} className="btn-login">Log-In 
-        </Link>
+         {name?<><p>Welcome {name}</p> <button className="btn-login" onClick={()=>handleLogout()} >Log-out</button> </> :<button className="btn-login" onClick={()=>setShowLogin(true)}>Log-in</button>}
+        
+         
       </div>
     </div>
   );

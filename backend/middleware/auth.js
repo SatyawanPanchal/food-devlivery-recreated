@@ -28,6 +28,8 @@ try{
 
 }
 
+export default authMiddleware;
+
 
 
 

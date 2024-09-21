@@ -2,6 +2,7 @@ import userModel from "../models/userModel.js";
 import validator from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import 'dotenv/config'
 
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET);
@@ -13,6 +14,8 @@ const loginUser = async (req, res) => {
   try {
     const user = await userModel.findOne({ email });
     //if user is not found
+    console.log('we got from database',user);
+    const username=user.name;
     if (!user) {
       return res.json({
         success: false,
@@ -34,8 +37,9 @@ const loginUser = async (req, res) => {
     const token = createToken(user._id);
 
     return res.json({
-      success: ture,
+      success: true,
       message: "we have got the user",
+      username,
       token,
     });
   } catch (error) {
@@ -49,15 +53,10 @@ const loginUser = async (req, res) => {
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
 
-  const doesEmailExist = await userModel.findOne({ email });
+ 
 
-  try {
-    if (!doesEmailExist) {
-      return res.json({
-        success: false,
-        message: "email does not exist",
-      });
-    }
+    try {
+  
 
     if (!validator.isEmail(email)) {
       return res.json({
@@ -84,7 +83,7 @@ const registerUser = async (req, res) => {
 
     const user = await newUser.save();
     const token = createToken(user._id);
-    res.json({ success: ture, token });
+    res.json({ success: true, token });
   } catch (error) {
     return res.json({
       success: false,
