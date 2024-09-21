@@ -3,8 +3,8 @@ import logo from "../../assets/logo.png";
 import search from "../../assets/search_icon.png";
 import basket from "../../assets/basket_icon.png";
 import { Link } from "react-router-dom";
-
-const Navbar = () => {
+ 
+const Navbar = ({setShowLogin}) => {
   return (
     <div className="navbar-container">
       <div className="logodiv navbar-left">
@@ -36,9 +36,7 @@ const Navbar = () => {
           {" "}
           <img src={basket} alt="" />{" "}
         </Link>
-        <Link to={"/login"}>
-          {" "}
-          <button className="btn-login">Log-In</button>{" "}
+        <Link to={"/login"} className="btn-login">Log-In 
         </Link>
       </div>
     </div>

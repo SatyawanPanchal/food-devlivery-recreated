@@ -20,7 +20,7 @@
   align-items: center;
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 70vh;
   
   z-index: 4;
   background-color: rgba(1, 0, 0, 0.5);
@@ -47,4 +47,15 @@
 .login-condition{
     display: flex;
     gap: 2rem;
+}
+.login-span{
+  color: red;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.btn-submit:hover{ 
+  color:red;
+  letter-spacing: 2px;
+
 }
