@@ -4,11 +4,16 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./Pages/Home/Home";
 import LoginPopUp from "./components/LoginPopUp/LoginPopUp";
 import Cart from "./Pages/Cart/Cart";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [name, setName] = useState("");
+  const [token1,setToken1]=useState("")
+  useEffect(()=>{
+    setToken1(localStorage.getItem("token"));
+    setName(localStorage.getItem("userName"));
+  },[])
   return (
     <>
       {showLogin ? (
@@ -17,7 +22,7 @@ const App = () => {
         <></>
       )}
       <div className="app">
-        <Navbar setShowLogin={setShowLogin} setName={setName} name={name} />
+        <Navbar setShowLogin={setShowLogin} setName={setName} name={name} token1={token1}/>
 
         <Routes>
           <Route path="/" element={<Home />}></Route>

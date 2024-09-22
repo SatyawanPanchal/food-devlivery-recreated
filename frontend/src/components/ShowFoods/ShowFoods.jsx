@@ -5,7 +5,7 @@ import { StoreContext } from "../Context/StoreContext";
 import FoodItem from "../FoodItem/FoodItem";
 // eslint-disable-next-line react/prop-types
 const ShowFoods = ({ category }) => {
-  console.log("category in showfood", category);
+ 
 
   const { food_list } = useContext(StoreContext);
   return (

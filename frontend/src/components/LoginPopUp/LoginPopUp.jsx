@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const LoginPopUp = ({ setShowLogin, setName }) => {
-  const [currState, setCurrState] = useState("Register");
+  const [currState, setCurrState] = useState("Login");
   const { url, setToken, loadCartData } = useContext(StoreContext);
 
   const [data, setData] = useState({
@@ -19,7 +19,7 @@ const LoginPopUp = ({ setShowLogin, setName }) => {
     const name = event.target.name;
     const value = event.target.value;
     setData((data) => ({ ...data, [name]: value }));
-    console.log("data=", data);
+ 
   };
 
   const handleState = () => {
@@ -37,19 +37,25 @@ const LoginPopUp = ({ setShowLogin, setName }) => {
     if (currState === "Login") {
       newUrl += "/api/user/login";
     } else {
+      console.log('register request is send from client end');
+      
       newUrl += "/api/user/register";
     }
     const response = await axios.post(newUrl, data);
-    console.log("name of the person logged in =", response.data.username);
-    setName(response.data.username);
+    
+   
     if (response.data.success) {
       console.log("token we got after login=", response.data.token);
+      console.log("name of the person logged in =", response.data.username);
 
       setToken(response.data.token);
 
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userName",response.data.username);
+      setName(response.data.username);
       loadCartData(response.data.token);
       setShowLogin(false);
+      window.location.reload();
     } else {
       toast.error(response.data.message);
     }

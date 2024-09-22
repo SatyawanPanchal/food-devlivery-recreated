@@ -11,7 +11,7 @@ const ExploreMenu = ({category,setCategory}) => {
     }
 
     useEffect(()=>{
-        console.log('category selected =',category);
+        
         
     },[category])
   return (

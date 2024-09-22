@@ -4,15 +4,20 @@ import search from "../../assets/search_icon.png";
 import basket from "../../assets/basket_icon.png";
 import { Link } from "react-router-dom";
  
+ 
 // eslint-disable-next-line react/prop-types
-const Navbar = ({setShowLogin,name,setName}) => {
+const Navbar = ({setShowLogin,name,setName,token1}) => {
+ 
+ 
+ 
+  
 
   const handleLogout=()=>{
           setName("")
-          localStorage.removeItem("token")
+          localStorage.removeItem("token") ;
+          localStorage.removeItem("userName")
+          window.location.reload();
   }
-
-
 
   return (
     <div className="navbar-container">
@@ -45,7 +50,7 @@ const Navbar = ({setShowLogin,name,setName}) => {
           {" "}
           <img src={basket} alt="" />{" "}
         </Link>
-         {name?<><p>Welcome {name}</p> <button className="btn-login" onClick={()=>handleLogout()} >Log-out</button> </> :<button className="btn-login" onClick={()=>setShowLogin(true)}>Log-in</button>}
+         {token1&&name?<><p>Welcome {name}</p> <button className="btn-login" onClick={()=>handleLogout()} >Log-out</button> </> :<button className="btn-login" onClick={()=>setShowLogin(true)}>Log-in</button>}
         
          
       </div>

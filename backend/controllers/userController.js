@@ -52,10 +52,10 @@ const loginUser = async (req, res) => {
 
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
-
- 
-
-    try {
+  console.log('register request on server side');
+  
+    
+  try {
   
 
     if (!validator.isEmail(email)) {
@@ -82,8 +82,11 @@ const registerUser = async (req, res) => {
     });
 
     const user = await newUser.save();
+    console.log('we have saved',user.name);
+    
+    const userName=user.name;
     const token = createToken(user._id);
-    res.json({ success: true, token });
+    res.json({ success: true, token, userName });
   } catch (error) {
     return res.json({
       success: false,

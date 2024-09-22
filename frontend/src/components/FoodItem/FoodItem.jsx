@@ -10,7 +10,7 @@ import { StoreContext } from '../Context/StoreContext';
 const FoodItem = ({ item }) => {
   const { _id,  image,   name, price } = item;
  const {cartItems,addToCart,removeFromCart} = useContext(StoreContext)
- console.log('cartItems===>',cartItems);
+ 
  
   return (
     <div>

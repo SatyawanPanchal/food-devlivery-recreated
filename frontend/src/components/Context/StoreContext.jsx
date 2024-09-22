@@ -10,7 +10,7 @@ const StoreContextProvider = (props) => {
   const [token,setToken]=useState("");
  
   const url='http://localhost:4000'
-console.log('cartItems=>',cartItems);
+ 
 
   const addToCart = async(itemId) => {
     if (!cartItems[itemId]) {
@@ -57,6 +57,8 @@ console.log('cartItems=>',cartItems);
     //  await fetchFoodList();
       if (localStorage.getItem("token")) {
         setToken(localStorage.getItem("token"));
+        console.log('token in local storage =',token);
+        
         await loadCartData(localStorage.getItem("token"));
       }
     }
