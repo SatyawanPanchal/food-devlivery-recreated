@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
+
 import { createContext, useEffect, useState } from "react";
 import { food_list } from "../../assets/assets";
 import axios from "axios";
-
+ 
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
@@ -64,8 +65,9 @@ const StoreContextProvider = (props) => {
     }
     loadData();
   }, []);
+
   const contextValue = {
-    url,
+    url,token,
     setToken,
     loadCartData,
     addToCart,
@@ -83,3 +85,4 @@ const StoreContextProvider = (props) => {
 };
 
 export default StoreContextProvider;
+

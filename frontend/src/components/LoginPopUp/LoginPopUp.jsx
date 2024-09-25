@@ -120,3 +120,7 @@ const LoginPopUp = ({ setShowLogin, setName }) => {
   );
 };
 export default LoginPopUp;
+ 
+
+
+

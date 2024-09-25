@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import "./CartItems.css";
 import { StoreContext } from "../Context/StoreContext";
+import { Link } from "react-router-dom";
  
 const CartItems = () => 
 {
@@ -74,8 +75,10 @@ const CartItems = () =>
             <span>Total</span>
             <span>₹ {(getTotalCartAmount()*80)+200} </span>
           </div>
-          
+         <Link to={"/placeOrders"}>
+
           <button className="btn-proceed">PROCEED TO CHECKOUT</button>
+         </Link> 
         </div>
 
         <div className="right-div">
