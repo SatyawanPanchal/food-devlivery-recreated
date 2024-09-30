@@ -4,6 +4,7 @@ import { connectDB } from "./config/connectdb.js";
 import cors from 'cors'
 import cartRoute from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
+import foodRouter from './routes/foodRoute.js'
 
 const app = express();
 const port = 4000;
@@ -15,9 +16,12 @@ app.use(cors())
 app.use('/api/user', userRoute);
 app.use("/api/cart",cartRoute);
 app.use('/api/order',orderRouter);
+app.use('/api/food',foodRouter);
+app.use('/images',express.static("uploads")) 
+
 
 app.get("/", (req, res) => {
-  res.json(`server is running here`);
+  res.json(`server is running here`); 
 });
 
 app.listen(port, () => {

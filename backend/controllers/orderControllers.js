@@ -116,7 +116,7 @@ const userOrders = async (req, res) => {
 
 const verifyOrder = async (req, res) => {
   const { orderId, success } = req.body;
-console.log("i am in verify order");
+  console.log("i am in verify order");
   try {
     if (success) {
       const response = await orderModel.findByIdAndUpdate(orderId, {
@@ -144,4 +144,18 @@ console.log("i am in verify order");
   }
 };
 
-export { placeOrders, verifyOrder };
+const listOrders=async(req,res)=>{
+try {
+  const orders=await orderModel.find({});
+  res.json({success:true,data:orders})
+} catch (error) {
+  console.log('error==>',error.message);
+  res.json({
+    success:false,
+    message: error.message + "error in listing the order"
+  })
+  
+}
+}
+
+export { placeOrders, verifyOrder, userOrders,listOrders };
